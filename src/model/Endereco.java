@@ -10,6 +10,7 @@ package model;
  * @author giclayne
  */
 public class Endereco {
+    private String id;
     private String rua;
     private int numeroCasa;
     private String bairro;
@@ -17,7 +18,8 @@ public class Endereco {
     private String estado;
     private String cep;
 
-    public Endereco(String rua, int numeroCasa, String bairro, String cidade, String estado, String cep) {
+    public Endereco(String id,String rua, int numeroCasa, String bairro, String cidade, String estado, String cep) {
+        this.id = id;
         this.rua = rua;
         this.numeroCasa = numeroCasa;
         this.bairro = bairro;
@@ -81,11 +83,21 @@ public class Endereco {
         this.cep = cep;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Endereco{" + "rua=" + rua + ", numeroCasa=" + numeroCasa + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", cep=" + cep + '}';
+        return "Endereco{" + "id=" + id + ", rua=" + rua + ", numeroCasa=" + numeroCasa + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", cep=" + cep + '}';
     }
     
+    
+
     
 
     
