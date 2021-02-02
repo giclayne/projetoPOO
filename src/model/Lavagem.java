@@ -14,19 +14,24 @@ import java.util.Date;
  * @author giclayne
  */
 public class Lavagem {
-
+    private String id;
     private Veiculo veiculo;
     private Funcionario funcionario;
+    private TipoLavagem tipoLavagem;
     private String hora, data, status;
 
     /**
      *
+     * @param id
      * @param veiculo
      * @param funcionario
+     * @param tipoLavagem
      */
-    public Lavagem(Veiculo veiculo, Funcionario funcionario) {
+    public Lavagem(String id,Veiculo veiculo, Funcionario funcionario,TipoLavagem tipoLavagem) {
         this.veiculo = veiculo;
         this.funcionario = funcionario;
+        this.tipoLavagem = tipoLavagem;
+        this.id = id;
         this.status = "Lavagem não concluída";
 
         Calendar c = Calendar.getInstance();
@@ -118,6 +123,22 @@ public class Lavagem {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    /**
+     *
+     * @return
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @param id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
     
     /**
      *
@@ -126,14 +147,20 @@ public class Lavagem {
         this.status = "Lavagem Concluída";
     }
 
-    /**
-     *
-     * @return
-     */
+    public TipoLavagem getTipoLavagem() {
+        return tipoLavagem;
+    }
+
+    public void setTipoLavagem(TipoLavagem tipoLavagem) {
+        this.tipoLavagem = tipoLavagem;
+    }
+
     @Override
     public String toString() {
-        return "Lavagem{" + "veiculo=" + veiculo + ", funcionario=" + funcionario + ", hora=" + hora + ", data=" + data + ", status=" + status + '}';
+        return "Lavagem{" + "id=" + id + ", veiculo=" + veiculo + ", funcionario=" + funcionario + ", tipoLavagem=" + tipoLavagem + ", hora=" + hora + ", data=" + data + ", status=" + status + '}';
     }
+    
+    
     
     
     

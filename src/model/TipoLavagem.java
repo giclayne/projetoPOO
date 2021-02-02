@@ -10,20 +10,24 @@ package model;
  * @author giclayne
  */
 public class TipoLavagem {
+    private String id;
     private String nome;
     private String descricao;
     private double valor;
 
     /**
      *
+     * @param id
      * @param nome
      * @param descricao
      * @param valor
      */
-    public TipoLavagem(String nome, String descricao, double valor) {
+    public TipoLavagem(String id,String nome, String descricao, double valor) {
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.valor = valor;
+        
     }
 
     /**
@@ -86,10 +90,28 @@ public class TipoLavagem {
      *
      * @return
      */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @param id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+ /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
-        return "TipoLavagem{" + "nome=" + nome + ", descricao=" + descricao + ", valor=" + valor + '}';
+        return "TipoLavagem{" + "id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", valor=" + valor + '}';
     }
+
+   
+    
     
     
 }

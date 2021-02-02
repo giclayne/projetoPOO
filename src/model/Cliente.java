@@ -10,72 +10,33 @@ package model;
  * @author giclayne
  */
 public class Cliente extends Pessoa{
-    private String numTelefone;
-    private String endereco;
 
-    /**
-     *
-     * @param numTelefone
-     * @param endereco
-     * @param nome
-     * @param cpf
-     */
-    public Cliente(String numTelefone, String endereco, String nome, String cpf) {
-        super(nome, cpf);
-        this.numTelefone = numTelefone;
-        this.endereco = endereco;
-    }
+   private String dataNascimento;
 
-    /**
-     *
-     */
     public Cliente() {
     }
 
-    /**
-     *
-     * @return
-     */
-    public String getNumTelefone() {
-        return numTelefone;
+   
+    public Cliente(String dataNascimento, int codigo, String nome, Endereco endereco, String telefone, String celular, String cpf, String rg, String email) {
+        super(codigo, nome, endereco, telefone, celular, cpf, rg, email);
+        this.dataNascimento = dataNascimento;
     }
 
-    /**
-     *
-     * @param numTelefone
-     */
-    public void setNumTelefone(String numTelefone) {
-        this.numTelefone = numTelefone;
+    public String getDataNascimento() {
+        return dataNascimento;
     }
 
-    /**
-     *
-     * @return
-     */
-    public String getEndereco() {
-        return endereco;
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
-    /**
-     *
-     * @param endereco
-     */
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    
-    /**
-     *
-     * @return
-     */
-    
     @Override
     public String toString() {
-        return super.toString() + "Nº telefone: " + numTelefone
-                + "Endereco: " + endereco ;
+        return super.toString() + "Cliente{" + "dataNascimento=" + dataNascimento + '}';
     }
+   
+   
     
-    
-    
+   
+
 }

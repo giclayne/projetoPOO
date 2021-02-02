@@ -10,6 +10,7 @@ package model;
  * @author giclayne
  */
 public class Veiculo {
+    private String id;
     private Cliente cliente;
     private String marca;
     private String modelo;
@@ -19,12 +20,14 @@ public class Veiculo {
     /**
      *
      * @param cliente
+     * @param id
      * @param marca
      * @param modelo
      * @param placa
      * @param cor
      */
-    public Veiculo(Cliente cliente, String marca, String modelo, String placa, String cor) {
+    public Veiculo(Cliente cliente, String id,String marca, String modelo, String placa, String cor) {
+        this.id = id;
         this.cliente = cliente;
         this.marca = marca;
         this.modelo = modelo;
@@ -120,15 +123,21 @@ public class Veiculo {
         this.cor = cor;
     }
 
-    /**
-     *
-     * @return
-     */
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Veiculo{" + "cliente=" + cliente + ", marca=" + marca + ", modelo=" + modelo + ", placa=" + placa + ", cor=" + cor + '}';
+        return "Veiculo{" + "id=" + id + ", cliente=" + cliente + ", marca=" + marca + ", modelo=" + modelo + ", placa=" + placa + ", cor=" + cor + '}';
     }
     
+    
+
     
     
 }

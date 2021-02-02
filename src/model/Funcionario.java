@@ -11,8 +11,7 @@ package model;
  */
 public class Funcionario extends Pessoa {
 
-    private int numIdentificacao;
-    private String rg;
+    private String cargo;
 
     /**
      *
@@ -20,59 +19,24 @@ public class Funcionario extends Pessoa {
     public Funcionario() {
     }
 
-    /**
-     *
-     * @param numIdentificacao
-     * @param rg
-     * @param nome
-     * @param cpf
-     */
-    public Funcionario(int numIdentificacao, String rg, String nome, String cpf) {
-        super(nome, cpf);
-        this.numIdentificacao = numIdentificacao;
-        this.rg = rg;
+    public Funcionario(String cargo, int codigo, String nome, Endereco endereco, String telefone, String celular, String cpf, String rg, String email) {
+        super(codigo, nome, endereco, telefone, celular, cpf, rg, email);
+        this.cargo = cargo;
     }
 
-    /**
-     *
-     * @return
-     */
-    public int getNumIdentificacao() {
-        return numIdentificacao;
+    public String getCargo() {
+        return cargo;
     }
 
-    /**
-     *
-     * @param numIdentificacao
-     */
-    public void setNumIdentificacao(int numIdentificacao) {
-        this.numIdentificacao = numIdentificacao;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
-
-    /**
-     *
-     * @return
-     */
-    public String getRg() {
-        return rg;
-    }
-
-    /**
-     *
-     * @param rg
-     */
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    /**
-     *
-     * @return
-     */
 
     @Override
     public String toString() {
-        return super.toString() + "Funcionario{" + "numIdentificacao=" + numIdentificacao + ", rg=" + rg + '}';
+        return super.toString() + "Funcionario{" + "cargo=" + cargo + '}';
     }
+    
 
+    
 }

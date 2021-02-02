@@ -3,39 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package icontratos.controllers;
 
-import icontratos.iRepositorioPessoa;
 import java.util.ArrayList;
-import model.Pessoa;
+import model.Cliente;
+import icontratos.iRepositorioGenerico;
 
 /**
  *
  * @author giclayne
  */
-public class RepositorioCliente implements iRepositorioPessoa {
+public class RepositorioCliente implements iRepositorioGenerico<Cliente, String> {
 
-    private ArrayList<Pessoa> clientes;
+    private ArrayList<Cliente> clientes;
 
+    /**
+     *
+     */
     public RepositorioCliente() {
         this.clientes = new ArrayList<>();
     }
 
     @Override
-    public void cadastrarPessoa(Pessoa cliente) {
-        this.clientes.add(cliente);
-
+    public void cadastrar(Cliente t) {
+        this.clientes.add(t);
     }
 
     @Override
-    public void alterarPessoa(Pessoa cliente) {
-        int id = this.clientes.indexOf(cliente);
-        this.clientes.set(id, cliente);
+    public void alterar(Cliente t) {
+        int id = this.clientes.indexOf(t);
+        this.clientes.set(id, t);
     }
 
     @Override
-    public boolean verificarPessoa(String cpf) {
-        for (Pessoa c : this.clientes) {
+    public boolean verificar(String cpf) {
+        for (Cliente c : this.clientes) {
             if (cpf.equals(c.getCpf())) {
                 return true;
             }
@@ -44,21 +46,23 @@ public class RepositorioCliente implements iRepositorioPessoa {
     }
 
     @Override
-    public Pessoa getPessoa(String cpf) {
+    public Cliente getObjeto(String cpf) {
         int id;
-        for (Pessoa c : clientes) {
+        for (Cliente c : clientes) {
             if (c.getCpf().equals(cpf)) {
                 id = this.clientes.indexOf(c);
                 return this.clientes.get(id);
             }
         }
-        return getPessoa(cpf);//mudar para uma excecao que a pessoa nn existe
+        return getObjeto(cpf);//mudar para uma excecao que a pessoa nn existe
+
     }
 
     @Override
-    public void removerPessoa(String cpf) {
+    public void remover(String cpf) {
+
         try {
-            Pessoa cliente = this.getPessoa(cpf);
+            Cliente cliente = this.getObjeto(cpf);
             this.clientes.remove(cliente);
         } catch (Exception e) {//Pessoa NAo xiste
             //retorna a excecao mesma do getPessoa
@@ -66,7 +70,7 @@ public class RepositorioCliente implements iRepositorioPessoa {
     }
 
     @Override
-    public ArrayList<Pessoa> listarPessoas() {
+    public ArrayList<Cliente> listarTodos() {
         return this.clientes;
     }
 
