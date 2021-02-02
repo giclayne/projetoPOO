@@ -17,6 +17,9 @@ public class RepositorioTipoLavagem implements iRepositorioGenerico<TipoLavagem,
     
     private ArrayList<TipoLavagem> tiposLavagems;
 
+    /**
+     *
+     */
     public RepositorioTipoLavagem() {
         this.tiposLavagems = new ArrayList<>();
     }

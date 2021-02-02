@@ -17,6 +17,9 @@ public class RepositorioVeiculo implements iRepositorioGenerico<Veiculo, String>
 
     private ArrayList<Veiculo> veiculos;
 
+    /**
+     *
+     */
     public RepositorioVeiculo() {
         this.veiculos = new ArrayList<>();
     }

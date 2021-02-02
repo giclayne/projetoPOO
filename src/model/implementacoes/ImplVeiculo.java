@@ -17,10 +17,18 @@ import model.Veiculo;
 public class ImplVeiculo {
     private RepositorioVeiculo repositorioVeiculo;
 
+    /**
+     *
+     * @param repositorioVeiculo
+     */
     public ImplVeiculo(RepositorioVeiculo repositorioVeiculo) {
         this.repositorioVeiculo = repositorioVeiculo;
     }
     
+    /**
+     *
+     * @param veiculo
+     */
     public void cadastrarVeiculo(Veiculo veiculo){
         boolean existeVeiculo = repositorioVeiculo.verificar(veiculo.getId());
         if(existeVeiculo){
@@ -30,11 +38,25 @@ public class ImplVeiculo {
         }
     }
     
+    /**
+     *
+     * @param veiculo
+     * @param id
+     */
     public void alterarId(Veiculo veiculo, String id){
        veiculo.setId(id);
        this.repositorioVeiculo.alterar(veiculo);
    }
     
+    /**
+     *
+     * @param veiculo
+     * @param cliente
+     * @param placa
+     * @param modelo
+     * @param cor
+     * @param marca
+     */
     public void alterarDadosDoVeiculo(Veiculo veiculo,Cliente cliente, String placa,String modelo,String cor,String marca){
         veiculo.setCliente(cliente);
         veiculo.setCor(cor);
@@ -44,15 +66,28 @@ public class ImplVeiculo {
         this.repositorioVeiculo.alterar(veiculo);
     }
     
-     public Veiculo procurarVeiculo(String id){
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Veiculo procurarVeiculo(String id){
         return this.repositorioVeiculo.getObjeto(id);
     }
     
-   public void removerVeiculo(String id){
+    /**
+     *
+     * @param id
+     */
+    public void removerVeiculo(String id){
        this.repositorioVeiculo.remover(id);
    }
    
-   public ArrayList<Veiculo> listarTodosVeiculos(){
+    /**
+     *
+     * @return
+     */
+    public ArrayList<Veiculo> listarTodosVeiculos(){
        return this.repositorioVeiculo.listarTodos();
    }
             

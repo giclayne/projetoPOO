@@ -16,6 +16,9 @@ import icontratos.iRepositorioGenerico;
 public class RepositorioFuncionario implements iRepositorioGenerico<Funcionario, String>{
     private ArrayList<Funcionario> funcionarios;
 
+    /**
+     *
+     */
     public RepositorioFuncionario() {
         this.funcionarios = new ArrayList<>();
     }

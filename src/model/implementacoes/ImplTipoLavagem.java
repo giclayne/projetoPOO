@@ -16,10 +16,19 @@ import model.TipoLavagem;
 public class ImplTipoLavagem {
     private RepositorioTipoLavagem repositorioTipoLavagem;
 
+    /**
+     *
+     * @param repositorioTipoLavagem
+     */
     public ImplTipoLavagem(RepositorioTipoLavagem repositorioTipoLavagem) {
         this.repositorioTipoLavagem = repositorioTipoLavagem;
     }
-     public void cadastrarTipoLavagem(TipoLavagem tipoLavagem){
+
+    /**
+     *
+     * @param tipoLavagem
+     */
+    public void cadastrarTipoLavagem(TipoLavagem tipoLavagem){
         boolean existeTipoLavagem = repositorioTipoLavagem.verificar(tipoLavagem.getId());
         if(existeTipoLavagem){
             //ExcecaoPessoaJaCadastrada
@@ -28,27 +37,52 @@ public class ImplTipoLavagem {
         }
     }
      
-     public void alterarID(TipoLavagem tipoLavagem, String id){
+    /**
+     *
+     * @param tipoLavagem
+     * @param id
+     */
+    public void alterarID(TipoLavagem tipoLavagem, String id){
        tipoLavagem.setId(id);
        this.repositorioTipoLavagem.alterar(tipoLavagem);
    }
      
-     public void alterarTipoLavagem(TipoLavagem tipoLavagem,String descricao,String nome,double valor){
+    /**
+     *
+     * @param tipoLavagem
+     * @param descricao
+     * @param nome
+     * @param valor
+     */
+    public void alterarTipoLavagem(TipoLavagem tipoLavagem,String descricao,String nome,double valor){
          tipoLavagem.setDescricao(descricao);
          tipoLavagem.setNome(nome);
          tipoLavagem.setValor(valor);
          this.repositorioTipoLavagem.alterar(tipoLavagem);
      }
      
-     public TipoLavagem procurarTipoLavagem(String id){
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public TipoLavagem procurarTipoLavagem(String id){
         return this.repositorioTipoLavagem.getObjeto(id);
     }
     
-   public void removerCliente(String id){
+    /**
+     *
+     * @param id
+     */
+    public void removerTipoLavagem(String id){
        this.repositorioTipoLavagem.remover(id);
    }
    
-   public ArrayList<TipoLavagem> listarTodosClientes(){
+    /**
+     *
+     * @return
+     */
+    public ArrayList<TipoLavagem> listarTodosTipoLavagem(){
        return this.repositorioTipoLavagem.listarTodos();
    }
     
