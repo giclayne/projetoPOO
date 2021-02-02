@@ -21,8 +21,6 @@ public class RepositorioLavagem implements iRepositorioGenerico<Lavagem, String>
         this.lavagems = new ArrayList<>();
     }
     
-    
-    
     @Override
     public void cadastrar(Lavagem t) {
         this.lavagems.add(t);
@@ -37,7 +35,7 @@ public class RepositorioLavagem implements iRepositorioGenerico<Lavagem, String>
     @Override
     public boolean verificar(String id) {
         for (Lavagem l : this.lavagems) {
-           if(l.equals(l.getId())){
+           if(id.equals(l.getId())){
                return true;
            }
     }
